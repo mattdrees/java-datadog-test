@@ -1,0 +1,15 @@
+version: "3.0"
+services:
+  app:
+    image: 056154071827.dkr.ecr.us-east-1.amazonaws.com/java-datadog-test:latest
+    environment:
+      ENVIRONMENT: lab
+      DD_AGENT_HOST : datadog-apm.aws.cru.org
+    volumes:
+      - /var/run/datadog:/var/run/datadog:ro
+    logging:
+      driver: awslogs
+      options:
+        awslogs-region: us-east-1
+        awslogs-group: java-datadog-test
+        awslogs-stream-prefix: java-datadog-test-app
