@@ -14,6 +14,9 @@ env | grep DD_
 echo "datadog statsd unix domain socket:"
 ls -la /var/run/datadog/dsd.socket
 
+echo "id:"
+id
+
 exec java \
  -javaagent:/usr/dd-java-agent.jar \
  -jar datadog-test.jar;
